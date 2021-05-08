@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Upload image{% endblock %}
+    
+{% block body %}
+    {% if success %}
+        <div id="status" class="alert alert-success" role="alert">{{ success }}</div>
+    {% elseif errors %}
+        <div id="status" class="alert alert-danger" role="alert">
+            {% for err in errors %}
+                {{ err }}<br />
+            {% endfor %}
+        </div>
+    {% endif %}
+   <div class = "upload-back">
+        <div class ="upload-title">
+            <h1>Télécharger une image</h1>
+        </div>
+        <div class ="upload-form">
+            <form class="form" action="upload" method="POST" enctype="multipart/form-data" id="formUp">
+                <input type="hidden" name="token" value="{{ csrf_token('upload') }}" />
+                <div class="custom-file">
+                    <input type="file" name="myfile" class="custom-file-input" id="myfile" />
+                    <input type="hidden" id="filename" name="selectedFile" value="" />
+                    <label id="selectedFile" class="custom-file-label" for="customFile">Choisissez un fichier</label>
+                </div>
+                <input type="submit" class="btn btn-lg btn-primary" value="Telecharger">
+            </form>
+        </div>
+   </div>
+   {# Permet d'afficher le nom de l'image uploadé dans le champs d'upload #}
+    <script>
+        $(document).ready(function() {
+            $('#myfile').change(function(e) {
+                var fileName = e.target.files[0].name;
+                $("#selectedFile").html(fileName);
+                $("#filename").val(fileName);
+            });
+        });
+    </script>
+{% endblock %}

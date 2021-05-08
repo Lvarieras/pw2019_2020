@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Photos d'Indonésie
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/galerie.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/styleIndex.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+{% endblock %}
+{% block scripts %}
+	<script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
+	<script src="{{ asset('js/carousel.js') }}"></script>
+	<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('js/cookies.js') }}"></script>
+{% endblock %}
+
+
+{% block body %}
+	<div class="indo-page">
+		<h1>Photos d'Indonésie</h1>
+
+		<div>
+			<img src="{{asset('img/indonesie/indo1.jpg') }}" width="40%" height="50%" alt="marché dans une rue d'Indonesie">
+			<img src="{{asset('img/indonesie/indo2.JPG') }}" width="40%" height="50%" alt="paysage lac et montagnes d'Indonesie">
+		</div>
+		<div>
+			<img src="{{asset('img/indonesie/indo3.jpg') }}" width="40%" height="50%" alt="photo de Marin en Indonesie">
+			<img src="{{asset('img/indonesie/indo4.jpg') }}" width="40%" height="50%" alt="coucher de soleil en Indonesie">
+		</div>
+		<div>
+			<img src="{{asset('img/indonesie/indo5.jpg') }}" width="40%" height="50%" alt="paysage montagnes en Indonesie">
+			<img src="{{asset('img/indonesie/indo6.jpg') }}" width="40%" height="50%" alt="photo de fleurs d'Indonesie">
+		</div>
+		<div>
+
+			<img src="{{asset('img/indonesie/indo7.JPG') }}" width="40%" height="50%" alt="photo d'une tortue en Indonesie">
+			<img src="{{asset('img/indonesie/indo8.JPG') }}" width="40%" height="50%" alt="photo d'une tortue en Indonesie">
+		</div>
+		<div>
+			<img src="{{asset('img/indonesie/indo9.JPG') }}" width="40%" height="50%" alt="photo journee du nettoyage ou world cleanup day en Indonesie">
+			<img src="{{asset('img/indonesie/indo10.JPG') }}" width="40%" height="50%" alt="photo journee du nettoyage ou world cleanup day en Indonesie">
+		</div>
+		<div>
+			<img src="{{asset('img/indonesie/indo11.JPG') }}" width="40%" height="50%" alt="photo journee du nettoyage ou world cleanup day en Indonesie">
+			<img src="{{asset('img/indonesie/indo12.JPG') }}" width="40%" height="50%" alt="photo d'un singe au milieu de dechets en Indonesie ">
+		</div>
+	</div>
+
+
+</br>
+<div class="button-all">
+	<a class="btn btn-primary" href="{{ path('app_galery') }}" role="button">Retour</a>
+</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <header>
+    </header>
+
+    <div class="container">
+        <div id="projet"></div>
+        <div class="bloc-title1">
+            <h1>Le projet</h1>
+        </div> 
+        <div class="bloc-div1">
+            <div class="right">
+                <img class="image-div1" src="{{ asset('img/6mois4pays2amis1docu.png') }}" alt="Presentation du projet">
+            </div>
+            <div class = "left">
+                <div class = "text">
+                    <p> Le défi des jeunes générations est le plus urgent, décisif et évident que l'humanité ait jamais rencontré: désamorcer la catastrophe écologique actuelle et à venir, aux conséquences sans précédent.</br></br>
+                    Si elle détient les clés et les ressources du changement, la jeunesse occidentale semble désemparée, impuissante face à la gravité des enjeux. Ailleurs, qu'en est-il ? </br></br>   
+                    Mômes, c'est le documentaire contré sur la conscience écologique de la jeunesse à travers le monde. Il est réalisé par 5 amis animés d'intentions résolument lumineuses.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="div-video">
+            <iframe id="video" src="https://www.youtube.com/embed/I5GQGpNPwtg" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id="quiSommesNous"></div>
+        <div class="bloc-title2">
+            <h2>Qui sommes-nous ?</h2>
+        </div>
+        <div class="bloc-div2">
+            <div class="left">
+                <img id="image1" src="{{ asset('img/marinPre2.jpg') }}" alt="Photo de marin">
+            </div>
+            <div class = "right">
+                <div id = "text1">
+                    <p>
+                        Je m'appelle Marin, j'ai 21 ans et j'étais dernièrement apprenti développeur à l'école 42. 
+                        </br>
+                        Je me passionne pour de nombreux sujets; la musique, la photographie, la philosophie etc.. 
+                        </br>
+                        J'affectione les exprériences desquelles découlent de nombreuses interrogations, ce voyage étant l'occasion parfaite d'en formuler certaines réponses. 
+                        </br>
+                        Une de mes missions sera de réaliser la bande-son du documentaire.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bloc-div3">
+            <div class="right">
+                <img id="image2" src="{{ asset('img/BenPre.jpg') }}" alt="Photo de Benjamin">
+            </div>
+            <div class = "left">
+                <div id = "text2">
+                    <p>Je m'appelle Benjamin, j'ai 20 ans. Originaire du Mans, j'ai étudié les langues, le commerce et le marketing à l'université et me destine au journalisme. </br>
+                        Créateur de contenu sur internet, ambassadeur de l'association AFEV, photographe et étudiant entrepreneur, j'exècre l'inertie. Le féminisme l'écologie et l'éducation précédement sur des bouts de papier, maintenant en images.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="destination"></div>
+            <div class="bloc-title2">
+                <h2> Notre prochaine destination </h2>
+            </div>
+
+        <div class="map-destination">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40356258.970805965!2d-81.43779222195246!3d-15.928147596976261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9c59c7ebcc28cf%3A0x295a1506f2293e63!2zQnLDqXNpbA!5e0!3m2!1sfr!2sfr!4v1578685445228!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </div>
+        <div id="remerciements">
+        </div>
+            <div class="bloc-title2">
+                <h2> Remerciements </h2>
+            </div>
+    </div>
+
+   <div class="slideshow">
+            <div class="remerciement">
+                <img class="img" src="{{ asset('img/remerciement/rem1.PNG') }}" alt="image des personnes ayant donné pour la cagnotte">
+                <img class="img" src="{{ asset('img/remerciement/rem2.PNG') }}" alt="image des personnes ayant donné pour la cagnotte">
+                <img class="img" src="{{ asset('img/remerciement/rem3.PNG') }}" alt="image des personnes ayant donné pour la cagnotte">
+                <img class="img" src="{{ asset('img/remerciement/rem4.PNG') }}" alt="image des personnes ayant donné pour la cagnotte">
+                <img class="img" src="{{ asset('img/remerciement/rem5.PNG') }}" alt="image des personnes ayant donné pour la cagnotte">
+                <img class="img" src="{{ asset('img/remerciement/rem6.PNG') }}" alt="image des personnes ayant donné pour la cagnotte">
+                <img class="img" src="{{ asset('img/remerciement/rem7.PNG') }}" alt="image des personnes ayant donné pour la cagnotte">
+                <img class="img" src="{{ asset('img/remerciement/rem8.PNG') }}" alt="image des personnes ayant donné pour la cagnotte">
+                <img class="img" src="{{ asset('img/remerciement/rem9.PNG') }}" alt="image des personnes ayant donné pour la cagnotte">
+            </div>
+            <div class="barre_progression"></div>
+        </div>
+{% endblock %}

@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.all {
+    margin-top: 3rem;
+    min-height: 85vh;
+}
+
+#sidebar {
+    position: absolute;
+    width: 100%;
+    height: 62px;
+    background: rgba(233, 223, 223, 0.8);
+    top: -62px;
+    transition: all 500ms linear;
+}
+
+#sidebar.active {
+    top: 0px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.contact-container .ul {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container .email {
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar ul li {
+    color: rgba(230, 230, 230, 0.9);
+    list-style: none;
+    padding: 16px 7px;
+    border-left: 1px solid rgba(100, 100, 100, 0.3);
+    border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+}
+
+#sidebar .toggle-btn {
+    position: absolute;
+    left: 1%;
+    top: 70px;
+}
+
+#sidebar .toggle-btn span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    background: #151719;
+    margin: 5px 0px;
+}
+
+#projet{
+    height: 6.3rem;
+    width: 100%;
+}
+#quiSommesNous{
+    height: 6.3rem;
+    width: 100%;
+}
+#destination{
+    height: 6.3rem;
+    width: 100%;
+}
+#remerciements{
+    height: 6.3rem;
+    width: 100%;
+}
+
+#messages>.card {
+    margin-bottom: 10px;
+}
+
+#messages>.card>.card-body {
+    padding: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+li {
+    float: left;
+    width: 12%;
+}
+
+li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    float: left;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+h2 {
+    font-variant: small-caps
+}
+
+#myformor {
+    width: 70%;
+}
+
+.goldbook-form {
+    display: flex;
+    background-color: rgb(255, 255, 255, 0.8);
+    justify-content: center;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    margin-right: 8rem;
+    margin-left: 8rem;
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.indo-page {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-back {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20rem;
+    margin-left: 20rem;
+}
+
+.singup-back {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20rem;
+    margin-left: 20rem;
+}
+
+.prof-back {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.prof-form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20rem;
+    margin-left: 20rem;
+}
+
+.contactMail-back {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.contactMail-form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20rem;
+    margin-left: 20rem;
+}
+
+.contact-button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 13rem;
+}
+
+.contact-button2 {
+    display: flex;
+    align-self: center;
+    width: 13rem;
+    
+}
+.contact-button .btn {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 13rem;
+}
+.btn {
+    background: rgb(243, 212, 167, 0.9) !important;
+    color:#55392b !important;
+}
+.button-all {
+    margin-bottom: 2rem;
+}
+
+.copyright-background {
+    margin-top: 1rem;
+    position: relative;
+    width: 100%;
+    background-color: rgba(212, 211, 211, 0.8);
+    bottom :0;
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+    font: 1.5vw luna;
+    color : #55392b;
+}
+.upload-back {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20rem;
+    margin-left: 20rem;
+    width: 46rem;
+}
+
+.form .btn {
+    margin-top: 1rem;
+}
+
+.user-tab {
+    background-color: rgb(255, 255, 255, 0.8);
+    margin-right: 10rem;
+    margin-left: 10rem;
+}
+
+.upload-title {
+    margin-bottom: 3rem;
+}
+
+.singup-title {
+    margin-bottom: 3rem;
+}
+.goldbook-background {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.goldbook-title {
+    margin-bottom: 3rem;
+    
+}
+
+.copyright-background {
+    bottom: 0;
+}
+
+.cookie-img {
+    height: 150px;
+    margin-left: 40%;
+}
+
+#cookie-opacity {
+    position: sticky!important;
+    width: 100vw;
+    height: 100vh;
+    bottom: 0!important;
+    top: 0!important;
+    left: 0!important;
+    right: 0!important;
+    z-index: 999999;
+    background-color: rgb(121, 99, 58, 0.8);
+    opacity: 1;
+    
+}
+
+.cookie-background {
+    position: sticky!important;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    
+}
+
+.cookie {
+    align-self: center;
+    width: 60rem;
+    height: 30rem;
+    background-color: rgba(70, 51, 29, 0.95);
+    color: white;
+    box-shadow: 0 10px 30px -10px rgba(104, 82, 10, 0.3);
+}
+
+.cookie p {
+    color: white !important;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 3rem;
+}
+
+.cookie-button {
+    display: flex;
+    justify-content: center;
+}
+
+.cookie-button .btn {
+    margin-top: 3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.dropdown-menu ol {
+    list-style-type: decimal;
+}

@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre d'or{% endblock %}
+
+{% block scripts %}
+	{{ parent() }}
+	<script src="{{ asset('assets/tinymce/tinymce.min.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+	{% if success %}
+		<div id="status" class="alert alert-success" role="alert">Message enregistré</div>
+	{% elseif errors %}
+		<div id="status" class="alert alert-danger" role="alert">
+			{% for err in errors %}
+				{{ err }}<br/>
+			{% endfor %}
+		</div>
+	{% endif %}
+	<div class="goldbook-background">
+		<div class="goldbook-title">
+			<h1>Livre d'or</h1>
+		</div>
+		<div class="goldbook-form">
+			<form method="POST" action="/livreor" id="myformor">
+				<div class="form-group">
+					<label for="nom">Nom:</label>
+					<input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" value="">
+				</div>
+				<div class="form-group">
+					<label for="message">Message:</label>
+					<textarea id="message" name="message"></textarea>
+				</div>
+				<input type="submit" class="btn btn-lg btn-primary" value="Envoyer">
+			</form>
+		</div>
+		<br/><br/>
+		{% if messages %}
+			<div class="messages">
+				<h3>Messages :</h3>
+				<div id="messages">
+					{% for msg in messages %}
+						{% if msg %}
+							<div class="card">
+								<div class="card-header">
+									<b>{{ msg.username }}</b>
+									-
+									<i>{{ msg.date.format('d/m/Y H:i:s') }}</i>
+								</div>
+								<div class="card-body">
+									{{ msg.message | raw }}
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+	{% endif %}
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			tinymce.init({'selector': 'textarea#message'});
+
+			$('#myformor').on('submit', function (e) {
+				var $this = $(this); // l'objet jquery du formulaire
+				var nom = $('#nom').val();
+				var message = $('#message').val();
+
+				if (nom === '' || message === '') {
+					alert('Tous les champs doivent être remplis.');
+				}
+			});	
+		});
+	</script>
+
+
+{% endblock %}

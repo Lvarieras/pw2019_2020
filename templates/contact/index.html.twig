@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter{% endblock %}
+
+{% block body %}
+	<!--
+	Inspiré de :
+	link: https://www.youtube.com/watch?v=QaSLBMqPb2U&list=PL5e68lK9hEzePSLgrkx-PWMUjh64-BbIe
+	-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+	<div class="all">
+		<div class="contact-container">
+			<h2>
+				Nos réseaux sociaux &nbsp:
+			</h2>
+
+			<div class="ul">
+				<div class="li">
+					<a href="https://www.facebook.com/MomesLeDocu/">
+						<i class="fab fa-facebook-f icon"></i>
+					</a>
+				</div>
+				<div class="li">
+					<a href="https://www.instagram.com/momesledocumentaire/?hl=fr">
+						<i class="fab fa-instagram icon"></i>
+					</a>
+				</div>
+			</div>
+
+            <h2>Nous envoyer un mail:</h2>
+			<div class="contact-button">
+				<a class="btn btn-primary" href="{{ path('app_contact_form')}}" role="button">Envoyer un mail</a>
+			</div>
+
+
+		</div>
+	</div>
+{% endblock %}

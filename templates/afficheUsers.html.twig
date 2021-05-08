@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+    <div class="user-tab">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th colspan="6"> Users </th>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Username</th>
+                    <th>Mail</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.mail }}</td>
+                    {% if "ROLE_ADMIN" in user.roles %}
+                    <td><a href="{{ path('app_switch_admin_role')}}?id={{ user.id }}" class="btn btn-warning">Rendre User</a></td>
+                    {% else %}
+                    <td><a href="{{ path('app_switch_admin_role')}}?id={{ user.id }}" class="btn btn-success">Rendre Admin</a></td>
+                    {% endif %}
+                    <td><a href="{{ path('app_delete_user')}}?id={{ user.id }}" class="btn btn-danger">Supprimer</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

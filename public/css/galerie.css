@@ -1,0 +1,25 @@
+body,title {
+    font-family: sans-serif;
+    padding: 50px;
+    background-image: url(/img/background.png);
+    line-height: 1.4;
+    text-align: center !important;
+}
+
+img {
+    -moz-webkit-background-size:cover;
+    background-size: cover;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+img:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}

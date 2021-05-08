@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Photos de Thailande
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/galerie.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/styleIndex.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+{% endblock %}
+{% block scripts %}
+	<script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
+	<script src="{{ asset('js/carousel.js') }}"></script>
+	<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/carousel.js') }}"></script>
+{% endblock %}
+{% block body %}
+<div class="indo-page">
+        <h1>Photos de Thailande</h1>
+        <div>
+                <img src = "{{asset('img/thailande/img1.JPG') }}" width="40%" height="50%" alt="photo de pju en thailande">
+                <img src = "{{asset('img/thailande/img2.JPG') }}" width="40%" height="50%" alt="photo de la campagne en thailande">
+        </div>
+        <div>     
+                <img src = "{{asset('img/thailande/img3.JPG') }}" width="40%" height="50%">
+                <img src = "{{asset('img/thailande/img4.JPG') }}" width="40%" height="50%" alt="photo de statue en thailande">
+        </div>
+        <div>
+                <img src = "{{asset('img/thailande/img5.JPG') }}" width="40%" height="50%">
+                <img src = "{{asset('img/thailande/img6.JPG') }}" width="40%" height="50%">
+        </div>
+        <div>
+                <img src = "{{asset('img/thailande/img7.JPG') }}" width="40%" height="50%">
+                <img src = "{{asset('img/thailande/img8.JPG') }}" width="40%" height="50%">
+        </div>
+        <div>
+                <img src = "{{asset('img/thailande/img9.JPG') }}" width="40%" height="50%" alt="photo de Marin avec des eleves en thailande">
+                <img src = "{{asset('img/thailande/img10.JPG') }}" width="40%" height="50%" alt="photo du tournage de la video P'Ju a man of dreams">
+        </div>
+        <div>
+                <img src = "{{asset('img/thailande/img12.JPG') }}" width="40%" height="50%" alt="photo de trash hero en thailande">
+                <img src = "{{asset('img/thailande/img13.JPG') }}" width="40%" height="50%" alt="photo de trash hero en thailande">
+        </div>
+
+        </br>
+
+<div class="button-all">
+	<a class="btn btn-primary" href="{{ path('app_galery') }}" role="button">Retour</a>
+</div>
+{% endblock %}

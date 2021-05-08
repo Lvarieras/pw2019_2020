@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+<div class="prof-back">
+    <h1>Votre profil</h1>
+    <div id="status" class="hidden" role="alert"></div>
+
+        <div class ="prof-form">
+            <form method="POST" action="/profil" id="formprofil">
+                <input id="id" name="id" type="hidden" value="{{app.user.id}}">
+                <div class="form-group">
+                    <label for="nom">Nom:</label>
+                    <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" value="{{app.user.nom}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="prenom">Prenom:</label>
+                    <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Votre prénom" value="{{app.user.prenom}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="mail">Adresse mail:</label>
+                    <input type="text" id="mail" name="mail" class="form-control" placeholder="mon.email@fournisseur.com" value="{{app.user.mail}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="login">Identifiant:</label>
+                    <input type="text" id="login" name="login" class="form-control" placeholder="Votre identifiant" value="{{app.user.username}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="pass">Nouveau mot de passe (8 caractères minimum)</label>
+                    <input type="password" id="pass" name="pass" class="form-control"
+                        minlength="8" value="" >
+                </div>
+                <br/>
+                <input type="submit" class="btn btn-lg btn-primary" value="Modifier">
+            </form>
+            {% if "ROLE_ADMIN" in app.user.roles %}
+
+                <div class="contact-button">
+                    <a class="btn btn-primary" href="{{ path('app_upload')}}" role="button">Télécharger une image</a>
+                </div>
+                <div class="contact-button2">
+                    <a class="btn btn-primary" href="{{ path('app_affiche_users')}}" role="button">Afficher les users inscrits</a>
+                </div>
+
+            {% endif %}
+        </div>
+</div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#formprofil').on('submit', function(e) {
+                e.preventDefault();
+     
+                var $this = $(this); // l'objet jquery du formulaire
+        
+                // Je récupère les valeurs
+                var nom = $('#id').val();
+                var nom= $('#nom').val();
+                var prenom = $('#prenom').val();
+                var mail = $('#mail').val();
+                var login = $('#login').val();
+                var pass = $('#pass').val();
+        
+                // Je vérifie une première fois pour ne pas lancer la requête HTTP
+                // si je sais que mon PHP renverra une erreur
+                if(nom === '' || prenom === '' || mail ==='' || login ==='') {
+                    alert('Tous les champs doivent être remplis.');
+                } else {
+                    $.ajax({
+                        url: $this.attr('action'), // Le nom du fichier indiqué dans le formulaire
+                        type: $this.attr('method'), // La méthode indiquée dans le formulaire (get ou post)
+                        data: $this.serialize(),
+                        success: function(data) {
+                            $('#status').attr('class', "alert "+data.state); // Ajout d'une classe CSS en fonction du type de réponse
+                            $('#status').html(data.content).show(200).delay(5000).hide(200); // Affichage du message de retour pendant 2s
+                        },
+                        error: function(data) {
+                            $('#status').attr('class', "alert "+data.state); // Ajout d'une classe CSS en fonction du type de réponse
+                            $('#status').html(data.content).show(200).delay(5000).hide(200); // Affichage du message de retour pendant 2s
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}

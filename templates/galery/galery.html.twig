@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galery{% endblock %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block scripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/carousel.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    {# <form action="doUpload" method="post" enctype="multipart/form-data">
+    </form> #}
+
+<div class="container">
+        <div class="carousel">
+            <div class="carousel__panorama">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+        </div>
+        <div id="carousel">
+            <div class="item">
+                <div class="item__image">
+                    <a href="{{path('app_indonesie') }}">
+                         <img src = "{{asset('img/indonesie/indo1.jpg') }}">
+                    </a>
+                </div>
+                <div class="item__body">
+                    <div class="item__title">
+                        Indonésie
+                    </div>
+                    <div class="item__description">
+                        Cliquez pour voir les photos de notre voyage en Indonésie
+                    </div>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="item__image">
+                    <a href="{{path('app_singapore') }}">
+                        <img src="{{ asset('img/singapore/singa1.JPG') }}"/>
+                    </a>
+                </div>
+                <div class="item__body">
+                    <div class="item__title">
+                        Singapour
+                    </div>
+                    <div class="item__description">
+                        Cliquez pour voir les photos de notre voyage à Singapour
+                    </div>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="item__image">
+                     <a href="{{path('app_malaisie') }}">
+                        <img src="{{ asset('img/malaisie/mal1.JPG') }}" />
+                    </a>
+                </div>
+                <div class="item__body">
+                    <div class="item__title">
+                        Malaisie
+                    </div>
+                    <div class="item__description">
+                        Cliquez pour voir les photos de notre voyage en Malaisie 
+                    </div>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="item__image">
+                    <a href="{{path('app_thailande') }}">
+                        <img src = "{{asset('img/thailande/img4_2.png') }}">
+                    </a>
+
+                </div>
+                <div class="item__body">
+                    <div class="item__title">
+                        Thaïlande
+                    </div>
+                    <div class="item__description">
+                        Cliquez pour voir les photos de notre voyage en Thaïlande
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}

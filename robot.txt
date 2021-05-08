@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /src/
+Disallow: /public/
+Disallow: /bin/
+Disallow: /config/
+Disallow: /tests/
+Disallow: /translations/
+Disallow: /var/
+Disallow: /vendor/
+Disallow: /templates/security
+Allow: /

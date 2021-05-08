@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Photos de Singapour
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/galerie.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/styleIndex.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+{% endblock %}
+{% block scripts %}
+	<script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
+	<script src="{{ asset('js/carousel.js') }}"></script>
+	<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/carousel.js') }}"></script>
+{% endblock %}
+{% block body %}
+<div class="indo-page">
+        <h1>Photos de Singapour</h1>
+
+        <div>
+                <img src = "{{asset('img/singapore/singa1.JPG') }}" width="40%" height="50%" alt="photo de nuit de Chinatown a Singapour">
+                <img src = "{{asset('img/singapore/singa2.JPG') }}" width="40%" height="50%" alt="photo d'une foret artificielle lumineuse la nuit a Singapour">
+        </div>
+
+        <div>
+                <img src = "{{asset('img/singapore/singa3.JPG') }}" width="40%" height="50%" alt="reunion pefc innvations ecologiques a Singapour">
+                <img src = "{{asset('img/singapore/singa4.JPG') }}" width="40%" height="50%" alt="photo affiche pefc Singapour">
+        </div>
+        <div>
+                <img src = "{{asset('img/singapore/singa5.JPG') }}" width="40%" height="50%">
+                <img src = "{{asset('img/singapore/singa6.JPG') }}" width="40%" height="50%">
+        </div>
+        </br>
+<div class="button-all">
+	<a class="btn btn-primary" href="{{ path('app_galery') }}" role="button">Retour</a>
+</div>
+{% endblock %}

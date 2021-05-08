@@ -1,0 +1,49 @@
+  
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact Form{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/tinymce/tinymce.min.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+	{% if success %}
+        <div id="status" class="alert alert-success" role="alert">{{ success }}</div>
+    {% elseif errors %}
+        <div id="status" class="alert alert-danger" role="alert">
+            {% for err in errors %}
+                {{ err }}<br />
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="contactMail-back">
+        <div class="contactMail-form">
+            <div class="form">
+                <form method="POST" action="/contact_form" id="contact">
+                    <div class="form-group">
+                        <label for="from">From:</label>
+                        <input type="text" id="from" name="from" class="form-control" placeholder="Votre e-mail" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet:</label>
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Votre sujet" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message">
+                        </textarea>
+                    </div>
+                    <input type="submit" class="btn btn-lg btn-primary" value="Envoyer">
+                </form>
+            </div>
+        </div>
+    </div>
+
+	<script>
+        tinymce.init({
+            'selector':'textarea#message'
+        });
+    </script>
+{% endblock %}

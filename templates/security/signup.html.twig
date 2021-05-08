@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'inscrire{% endblock %}
+
+{% block scripts %}
+	{{ parent() }}
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock %}
+
+{% block body %}
+	<div id="status" class="hidden" role="alert"></div>
+	<div class="singup-back">
+		<div class="singup-title">
+			<h1>Merci de vous inscrire</h1>
+		</div>
+
+		<div class="signup-form">
+			<form method="POST" action="/signup" id="myform">
+				<div class="form-group">
+					<label for="nom">Nom:</label>
+					<input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="prenom">Prenom:</label>
+					<input type="text" id="prenom" name="prenom" class="form-control" placeholder="Votre prénom" value="{{ prenom }}">
+				</div>
+
+				<div class="form-group">
+					<label for="mail">Adresse mail:</label>
+					<input type="text" id="mail" name="mail" class="form-control" placeholder="mon.email@fournisseur.com" value="{{ mail }}">
+				</div>
+
+				<div class="form-group">
+					<label for="login">Identifiant:</label>
+					<input type="text" id="login" name="login" class="form-control" placeholder="Votre identifiant" value="{{ login }}">
+				</div>
+
+				<div class="form-group">
+					<label for="pass">Mot de passe (8 caractères minimum):</label>
+					<input type="password" id="pass" name="pass" class="form-control" minlength="8" value="{{ pass }}" required>
+				</div>
+
+				<div class="g-recaptcha" data-sitekey="6LfUFswUAAAAAEaeqozPHnMOJlZcwRLKRgK-ylfk"></div>
+				<br/>
+				<input type="submit" class="btn btn-lg btn-primary" value="S'inscrire">
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#myform').on('submit', function (e) {
+				e.preventDefault();
+
+				var $this = $(this);
+				// l'objet jquery du formulaire
+
+				// Je récupère les valeurs
+				var nom = $('#nom').val();
+				var prenom = $('#prenom').val();
+				var mail = $('#mail').val();
+				var login = $('#login').val();
+				var pass = $('#pass').val();
+
+				// Je vérifie une première fois pour ne pas lancer la requête HTTP
+				// si je sais que mon PHP renverra une erreur
+				if (nom === '' || prenom === '' || mail === '' || login === '' || pass === '') {
+					alert('Tous les champs doivent être remplis.');
+				} else {
+					$.ajax({
+						url: $this.attr('action'), // Le nom du fichier indiqué dans le formulaire
+						type: $this.attr('method'), // La méthode indiquée dans le formulaire (get ou post)
+						data: $this.serialize(),
+						beforeSend: function () { // Traitements JS à faire AVANT l'envoi
+							$this.after('<img src="/img/loader.gif" alt="loading" id="load1">'); // Ajout d'un loader pour signifier l'action
+						},
+						success: function (data) {
+							$('#load1').remove(); // Suppression du loader
+							$('#status').attr('class', "alert " + data.state); // Ajout d'une classe CSS en fonction du type de réponse
+							$('#status').html(data.content).show(200).delay(5000).hide(200); // Affichage du message de retour pendant 2s
+						},
+						error: function (data) {
+							$('#load1').remove(); // Suppression du loader
+							$('#status').attr('class', "alert " + data.state); // Ajout d'une classe CSS en fonction du type de réponse
+							$('#status').html(data.content).show(200).delay(5000).hide(200); // Affichage du message de retour pendant 2s
+						}
+					});
+				}
+			});
+		});
+	</script>
+{% endblock %}

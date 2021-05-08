@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale">
+		<meta name="keywords" content="mômes,documentaire,ecologie,voyage,indonésie,malaisie,singapour,thailande,réchauffement climatique,jeunes,">
+		<meta name="description" content="Un projet entre deux amis, qui sont parti dans quatres pays d'Asie pour réaliser un documentaire sur l'impact du réchauffement climatique.">
+		<meta name="identifier-url" content="https://mômes.fr">
+		<meta name="revisit-after" content="30 days">
+		<meta name="language" content="fr">
+		<meta http-equiv="Content-Language" content="fr">
+		<meta name="robots" content="index">
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="og:title" content="Mômes">
+		<meta name="og:type" content="website">
+		<meta name="og:image" content="https://mômes.fr/indonesie">
+		<meta name="og:url" content="https://mômes.fr">
+
+		<title>
+			{% block title %}Welcome!{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/social.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/styleIndex.css') }}">
+		{% endblock %}
+		{% block scripts %}
+			<script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
+			<script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+			<script src="{{ asset('js/cookies.js') }}"></script>
+		{% endblock %}
+	</head>
+	<body>
+		<div class="pos-f-t">
+			<div class="collapse" id="navbarToggleExternalContent">
+				<div class="bg-dark">
+					<ul class="nav nav-pills nav-fill">
+						<li class="nav-item nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="{{ path('app_homepage') }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Accueil
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<ol>
+									<a class="dropdown-item" href="{{ path('app_homepage')}}"><li>Accueil</li></a>
+									<a class="dropdown-item" href="{{ path('app_homepage')}}#projet"><li>Le projet</li></a>
+									<a class="dropdown-item" href="{{ path('app_homepage')}}#quiSommesNous"><li>Qui sommes nous</li></a>
+									<a class="dropdown-item" href="{{ path('app_homepage')}}#destination"><li>Prochaine destination</li></a>
+									<a class="dropdown-item" href="{{ path('app_homepage')}}#remerciements"><li>Remerciements</li></a>
+								</ol>
+							</div>
+						</li>	
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_galery') }}">Galerie</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_contact') }}">Nous contacter</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_livreor') }}">Livre d'or</a>
+						</li>
+						{% if app.user %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+							</li>
+						{% endif %}
+						{% if not app.user %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+							</li>
+						{% endif %}
+						{% if app.user %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_profil') }}">Profil</a>
+							</li>
+						{% endif %}
+						{% if not app.user %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_signup') }}">S'inscrire</a>
+							</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+			<nav class="navbar navbar-dark bg-dark">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</nav>
+		</div>
+		<div id="cookie-opacity" style="display:none">
+			<div class="cookie-background">
+				<div class="cookie">
+					<h1>Cookies</h1>
+					<p>Mômes.fr utilise des cookies pour suivre la fréquentation de notre site, nous ne stockons aucune donnée personnelle.</p>
+					<p>Nous n'utilisons aucun chocolat ou pâte à gateaux pour réaliser ceux-ci.</p>
+					<img class="cookie-img" src="{{ asset("/img/cookie.webp") }}" />
+					<div class="cookie-button">
+						<button class="btn btn-primary" onclick="acceptCookie()">Je mange !</button>
+						<button class="btn btn-primary" onclick="refuseCookie()">Je ne mange pas</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="all">
+			<div id="content"> 
+				{% block body %}
+				{% endblock %}
+			</div>
+		</div>
+		<footer class="copyright-background">
+			<div class="copyright">
+				Copyright © Mômes 2019
+			</div>
+		</footer>
+	</body>
+</html>
